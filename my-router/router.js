@@ -10,6 +10,8 @@ const Router = {
 
     // will initalise the route
     checkIn : function(){},
-    navigate : function(){}
+    navigate : function(){},
+    clearSlesh: function(){},
+
 
 };

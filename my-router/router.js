@@ -19,14 +19,15 @@ const Router = {
     },
     //
 
+
     //this function will remove slashes from start and end of a string/path
     clearSlashes: function(path) {
         return path.toString().replace(/\/$/, '').replace(/^\//, '');
     },
 
-    //this function will add  Routes to the application which will call the  handler function
-    add: function(route, handler) {
-        this.routes.push({ route: route, handler: handler});
+    //this function will add  Routes to the application which will call the  handler Object
+    add: function(route, routeObj) {
+        this.routes.push({ route: route, routeObj: routeObj});
         return this;
     },
 
@@ -61,10 +62,29 @@ const Router = {
      * This method will check if the current routes exist in our array, if it does exist this will call its handler
      */
     check : function(route){
+        let root = document.getElementById('root');
         route = route || this.getFragment();
-        var routeObj = this.routes.find((routeObj)=>routeObj.route === route);
-        if(routeObj){
-            routeObj.handler();
+
+        var obj = this.routes.find((routeObj)=>routeObj.route === route);
+        if(obj){
+            let url = obj.routeObj && obj.routeObj.templateUrl;
+            if(url){
+                fetch(url, {
+                    method:'get',
+                    headers :{
+                        'content-type':'application/text'
+                    }
+                })
+                    .then((response)=>{
+                        return response.text();
+                    })
+                    .then((response)=>{
+                        root.innerHTML = response;
+                    })
+                    .catch((error)=>{
+                        console.error('Error while transiting',error);
+                    });
+            }
         }
         return this;
     },

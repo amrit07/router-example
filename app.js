@@ -8,13 +8,16 @@ var root = document.getElementById('root');
 
 // adding routes
 Router
-    .add('About', function() {
-        root.innerHTML =  'Hey I am an about us page';
+    .add('About', {
+        templateUrl : 'templates/about.html'
     })
-    .add('Contact', function() {
-        root.innerHTML = 'Plz contact me at the following address';
+    .add('Contact', {
+        templateUrl : 'templates/contactus.html'
     })
-    .check('About').listen();
+    .add('Home',{
+        templateUrl :'templates/home.html'
+    })
+    .check('Home').listen();
 
 // forwarding
 Router.navigate('/About');

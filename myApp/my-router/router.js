@@ -2,7 +2,7 @@
  * Created by amrmishr on 2/18/18.
  */
 
-const Router = {
+export const  Router = {
     routes : [],
     mode: '',
     root : '',
@@ -116,4 +116,3 @@ const Router = {
         return this;
     }
 };
-

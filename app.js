@@ -8,16 +8,16 @@ var root = document.getElementById('root');
 
 // adding routes
 Router
-    .add('about', function() {
+    .add('About', function() {
         root.innerHTML =  'Hey I am an about us page';
     })
-    .add('contact', function() {
+    .add('Contact', function() {
         root.innerHTML = 'Plz contact me at the following address';
     })
-    .check('about').listen();
+    .check('About').listen();
 
 // forwarding
-Router.navigate('/about');
+Router.navigate('/About');
 var menuItem = document.getElementsByClassName('menuitem');
 
 $('.menuitem').on('click',function(ele){

@@ -20,7 +20,7 @@ Router
     .check('Home').listen();
 
 // forwarding
-Router.navigate('/About');
+Router.navigate('/Home');
 var menuItem = document.getElementsByClassName('menuitem');
 
 $('.menuitem').on('click',function(ele){

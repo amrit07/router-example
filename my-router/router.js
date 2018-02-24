@@ -71,9 +71,6 @@ const Router = {
             if(url){
                 fetch(url, {
                     method:'get',
-                    headers :{
-                        'content-type':'application/text'
-                    }
                 })
                     .then((response)=>{
                         return response.text();

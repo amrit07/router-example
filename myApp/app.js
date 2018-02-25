@@ -2,6 +2,9 @@
  * Created by amrmishr on 2/18/18.
  */
 // configuration
+import {Router} from './my-router/router';
+import $ from 'jquery';
+
 Router.config({ mode: 'history'});
 var root = document.getElementById('root');
 
@@ -21,8 +24,6 @@ Router
 
 // forwarding
 Router.navigate('/Home');
-var menuItem = document.getElementsByClassName('menuitem');
-
 $('.menuitem').on('click',function(ele){
     var route = ele.target.innerHTML;
     Router.navigate('/'+route);
